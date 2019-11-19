@@ -7,6 +7,7 @@ use App\Entity\Parameter;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class ItemType extends AbstractType
 {
@@ -20,6 +21,11 @@ class ItemType extends AbstractType
                 'choice_label' => function (Parameter $parameter) {
                     return $parameter->getCode() . ' ' . $parameter->getName();
                 },
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('p')
+                        ->where('p.id < 0')
+                    ;
+                }
             ])
         ;
     }

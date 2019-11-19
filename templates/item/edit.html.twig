@@ -6,6 +6,9 @@
         {{ form_errors(form) }}
         {{ form_row(form.name) }}
         {{ form_row(form.parameters) }}
+        <div id="app">
+            <parameter-selector :selected="[{'id': 1}]" :parameters="[{'id': 1, 'code': 'PARAM1', 'name': 'Funky'}]"></parameter-selector>
+        </div>
         <button type="submit" class="btn btn-primary">Save</button>
         <a href="{{ path('item_show', {'id': item.id}) }}" class="btn btn-link">Cancel</a>
     {{ form_end(form) }}
@@ -13,8 +16,8 @@
 
 {% block javascripts %}
 <script>
-// new Vue({
-//     el: '#app'
-// })
+new Vue({
+    el: '#app'
+})
 </script>
 {% endblock %}
