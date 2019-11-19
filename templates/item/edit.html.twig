@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Item Edit</h1>
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.parameters) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{{ path('item_show', {'id': item.id}) }}" class="btn btn-link">Cancel</a>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+<script>
+// new Vue({
+//     el: '#app'
+// })
+</script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Item Detail</h1>
+    <p>Item Name: {{ item.name }}</p>
+    <p>Parameters:</p>
+    <ul>
+        {% for parameter in item.parameters %}
+            <li>{{ parameter.code }} {{ parameter.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path('item_edit', {'id': item.id}) }}" class="btn btn-primary">Edit</a>
+{% endblock %}
