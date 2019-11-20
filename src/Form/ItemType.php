@@ -21,11 +21,6 @@ class ItemType extends AbstractType
                 'choice_label' => function (Parameter $parameter) {
                     return $parameter->getCode() . ' ' . $parameter->getName();
                 },
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('p')
-                        ->where('p.id < 0')
-                    ;
-                }
             ])
         ;
     }

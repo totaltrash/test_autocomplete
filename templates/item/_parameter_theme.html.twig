@@ -1,0 +1,20 @@
+{% block _item_parameters_widget %}
+    {%
+        set choices_json = form.vars.choices|map(choice => {
+            'id': choice.value,
+            'label': choice.label,
+        })|json_encode
+    %}
+
+    {% set selected_json = form.vars.value|json_encode %}
+
+    <div id="app">
+        <parameter-selector :choices="{{ choices_json }}" :selected="{{ selected_json }}" field-name="item[parameters][]"></parameter-selector>
+    </div>
+
+    {#
+    {{ dump(form) }}
+    {{ choices_json }}
+    {{ selected_json }}
+    #}
+{% endblock %}
