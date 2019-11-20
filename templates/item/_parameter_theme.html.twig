@@ -9,7 +9,7 @@
     {% set selected_json = form.vars.value|json_encode %}
 
     <div id="app">
-        <parameter-selector :choices="{{ choices_json }}" :selected="{{ selected_json }}" field-name="item[parameters][]"></parameter-selector>
+        <parameter-selector :choices="{{ choices_json }}" :selected="{{ selected_json }}" field-name="item[parameters][]" />
     </div>
 
     {#
